@@ -1,0 +1,33 @@
+<div class="container" style="margin:100px auto">
+    <div class="row">
+        <p class="text-start"><a href="/admin/productos"> Volver</a></p>
+        <p class="text-end"><a class="btn btn-danger" href="/admin/login/logout">Cerrar sesión</a></p>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Nuevo producto</h4>
+            <form action="/admin/productos/agregar" method="post" enctype="multipart/form-data">
+                <div class="mb-3 row">
+                    <input type="text" class="form-control" name="producto_nombre" id="producto_nombre" placeholder="Nombre del producto"/>
+                </div>
+                <div class="mb-3 row">
+                    <input type="text" class="form-control" name="producto_precio" id="producto_precio" placeholder="Precio" pattern="\d{1,10}" title='Ingrese el valor del producto'/>
+                </div><div class="mb-3 row">
+                    <select class="form-control" name="producto_categoria" name="producto_categoria" id="producto_categoria">
+                        <option selected>Seleccione una categoría</option>
+                        {{#each categorias}}
+                            <option value="{{codigo}}">{{nombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3 row">
+                    <label>Imagen: <input type="file" class="form-control" name="imagen" id="imgen"/></label>
+                </div>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+            </form>
+            {{#if error}}
+                <p>{{message}}</p>
+            {{/if}}
+        </div>
+    </div>
+</div>

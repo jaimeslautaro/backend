@@ -1,0 +1,49 @@
+<div class="container" style="margin-top: 50px;">
+    <div class="row">
+        <p class="text-end">¡Hola, {{persona}}! <a class="btn btn-danger" href="/admin/login/logout">Cerrar sesión</a></p>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <h3>Listado de Novedades</h3>
+        </div>
+        <div class="col-5 text-end">
+            <a class="btn btn-success" href="/admin/productos/agregar">Nuevo</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="col">#</th>
+                        <th scope="col">Título</th>
+                        <th>Imagen</th>
+                        <th>Precio</th>
+                        <th>Categoría</th>
+
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each productos}}
+                        <tr>
+                            <th scope="row">{{id}}</th>
+                            <td>{{nombre}}</td>
+                            <td>{{{imagen}}}</td>
+                            <td>${{precio}}</td>
+                            <td>{{nombre_categoria}}</td>
+
+                            <td class="text-end">
+                                <a class="btn btn-secondary" href="/admin/productos/modificar/{{id}}">Editar</a>
+                                <a class="btn btn-secondary" href="/admin/productos/eliminar/{{id}}">Eliminar</a>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{#if error}}
+                {{message}}
+            {{/if}}
+        </div>
+    </div>
+</div>

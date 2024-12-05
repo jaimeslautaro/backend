@@ -1,0 +1,54 @@
+body{
+  height: 100%;
+  margin: 0;
+}
+
+html{
+  padding-bottom: 50px;
+  min-height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Yanone Kaffeesatz", sans-serif;;
+  font-style: normal;
+}
+
+h2{
+  color: #333;
+}
+
+.holder{
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header{
+  background-color: blanchedalmond;
+  padding: 6px 0;
+}
+
+header h1{
+  color: black;
+  font-size: 40px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background-color: #ccc;
+  clear: both;
+  color: #333;
+  text-align: center;
+  padding: 5px 0;
+  margin-top: 20px;
+}

@@ -1,0 +1,19 @@
+<div class="container" style="margin:100px auto">
+  <div>
+    <h1>Inicio de sesión</h1>
+    <form action="/admin/login" method="post">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Correo electrónico</label>
+        <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" name="nombre">
+      </div>
+      <div class="mb-3">
+        <label for="clave" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="clave" name="clave">
+      </div>
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+    </form>
+  </div>
+  {{#if error}}
+  <p>Usuario y/o clave incorrectos.</p>
+  {{/if}}
+</div>

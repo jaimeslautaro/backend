@@ -1,0 +1,43 @@
+<div class="container" style="margin:100px auto">
+    <div class="row">
+        <p class="text-start"><a href="/admin/productos"> Volver</a></p>
+        <p class="text-end"><a class="btn btn-danger" href="/admin/login/logout">Cerrar sesión</a></p>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Modificar producto</h4>
+            <form action="/admin/productos/modificar" method="post" enctype="multipart/form-data">
+                <input type="hidden" value="{{producto.producto_id}}" name="producto_id"/>
+                <div class="mb-3 row">
+                    <input type="text" class="form-control" name="producto_nombre" id="producto_nombre" placeholder="Nombre del producto" value="{{producto.producto_nombre}}"/>
+                </div>
+                <div class="mb-3 row">
+                    <input type="text" class="form-control" name="producto_precio" id="producto_precio" placeholder="Precio" pattern="\d{1,10}" title='Ingrese el valor del producto' value="{{producto.producto_precio}}"/>
+                </div><div class="mb-3 row">
+                    <select class="form-control" name="producto_categoria" name="producto_categoria" id="producto_categoria" value="{{producto.producto_categoria}}">
+                        <option selected value="{{categoriaProducto.categoria_id}}">{{categoriaProducto.categoria_descripcion}}</option>
+                        {{#each categorias}}
+                            <option value="{{codigo}}">{{nombre}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3 row">
+                    <p>
+                        {{{imagen}}}
+                    </p>
+                    <p>
+                        <label>Imagen: <input type="file" class="form-control" name="imagen" id="imgen"></label>
+                    </p>
+                    <p>
+                        <label><input type="checkbox" name="img_delete" id="img_delete" value="1">Eliminar imagen actual?</label>
+                        <input type="hidden" name="img_original" value="{{producto.img_id}}">
+                    </p>
+                </div>
+                <button class="btn btn-primary" type="submit">Actualizar</button>
+            </form>
+        </div>
+        {{#if error}}
+            {{message}}
+        {{/if}}
+    </div>
+</div>
